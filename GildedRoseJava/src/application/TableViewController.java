@@ -29,31 +29,29 @@ public class TableViewController implements Initializable {
     private Button UpdateButton;
 
     
+
+	Item i1 = new Item("+5 Dexterity Vest", 10, 20);
+	Item i2=new Item("Aged Brie", 2, 0);
+	Item i3=new Item("Elixir of the Mongoose", 5, 7);
+	Item i4=new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+	Item i5=new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+	Item i6=new Item("Conjured Mana Cake", 3, 6);
+	final ObservableList<Item> liste1 = FXCollections.observableArrayList(i1,i2,i3,i4,i5,i6);
+	    
+    
     @Override
     public void initialize (URL arg0, ResourceBundle arg1)
     {
-    	ColumnName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-    	ColumnSellIn.setCellValueFactory(new PropertyValueFactory<>("SellIn"));
-    	ColumnQuality.setCellValueFactory(new PropertyValueFactory<>("Quality"));
-    	GrilleItem.setItems(getItemList());
-    }
-    
-    public void AddRecord()
-    {
+    	ColumnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
+    	ColumnSellIn.setCellValueFactory(new PropertyValueFactory<Item, String>("sellIn"));
+    	ColumnQuality.setCellValueFactory(new PropertyValueFactory<Item, String>("quality"));
     	
+    	GrilleItem.setItems(liste1);
     }
     
-    public ObservableList<Item> getItemList()
-    {
-    	ObservableList<Item> result = FXCollections.observableArrayList();
-    	result.add(new Item("+5 Dexterity Vest", 10, 20));
-    	result.add(new Item("Aged Brie", 2, 0));
-    	result.add(new Item("Elixir of the Mongoose", 5, 7));
-    	result.add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
-    	result.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
-    	result.add(new Item("Conjured Mana Cake", 3, 6));
-
-    	return result;
-    }
+    
+    
+    
+    
 }
 
